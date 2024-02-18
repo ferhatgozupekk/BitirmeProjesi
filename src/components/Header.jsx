@@ -4,45 +4,32 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className=" bg-green-200 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center border-gray-100 py-6 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
+    <header className="bg-gray-100 shadow">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-6 md:space-x-10">
+          <Link
+            to="/"
+            className="flex title-font font-medium items-center text-gray-900"
+          >
             <GiHealthCapsule
-              className=" text-green-950 h-8 w-8"
+              className="text-gray-600 h-10 w-10"
               aria-hidden="true"
             />
-            <Link
-              to="/"
-              className="ml-3 self-center text-xl font-semibold whitespace-nowrap dark:text-gray-800"
-            >
+            <span className="ml-3 text-xl text-gray-800">
               Bursa Nöbetçi Eczaneler
-            </Link>
-          </div>
-          <div className="md:flex items-center justify-center flex-1 min-w-0">
-            <div className="w-full">
-              <label htmlFor="search" className="sr-only">
-                Arama
-              </label>
-              <input
-                type="search"
-                name="search"
-                id="search"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Eczane veya ilçe ara..."
-              />
-            </div>
-          </div>
-          <div className="flex items-center justify-end lg:w-0 lg:flex-1">
-            <a
-              href="#"
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Bize Ulaşın
-            </a>
+            </span>
+          </Link>
+          <div className="w-full max-w-xs">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              className="w-full p-2 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
+              placeholder="Eczane veya ilçe ara..."
+            />
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

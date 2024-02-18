@@ -20,36 +20,36 @@ function District() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pharmacies.map((pharmacy) => (
           <div
             key={pharmacy.id}
-            className="bg-white shadow overflow-hidden rounded-lg"
+            className="flex flex-col bg-white rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1"
           >
-            <div className="px-4 py-5 sm:p-6">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">
+            <div className="p-5">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
                 {pharmacy.eczane}
               </h3>
-              <p className="mt-1 text-sm text-gray-500">{pharmacy.adres}</p>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="text-gray-600 text-sm">{pharmacy.adres}</p>
+              <p className="text-gray-500 text-sm mt-3">
                 {pharmacy.adres_tarifi}
               </p>
-              <div className="mt-4">
-                <a
-                  href={`tel:${pharmacy.tel}`}
-                  className="text-indigo-600 hover:text-indigo-900 block"
-                >
-                  Telefon: {pharmacy.tel}
-                </a>
-                <a
-                  href={`https://www.google.com/maps/?q=${pharmacy.enlem},${pharmacy.boylam}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-indigo-600 hover:text-indigo-900 block"
-                >
-                  Haritada Görüntüle
-                </a>
-              </div>
+            </div>
+            <div className="mt-auto p-5 bg-gray-100">
+              <a
+                href={`tel:${pharmacy.tel}`}
+                className="flex items-center justify-center text-gray-700 hover:text-gray-900 transition-colors duration-200 text-sm font-medium"
+              >
+                Telefon: {pharmacy.tel}
+              </a>
+              <a
+                href={`https://www.google.com/maps/?q=${pharmacy.enlem},${pharmacy.boylam}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center text-gray-700 hover:text-gray-900 transition-colors duration-200 text-sm font-medium mt-3"
+              >
+                Haritada Görüntüle
+              </a>
             </div>
           </div>
         ))}

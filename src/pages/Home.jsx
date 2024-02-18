@@ -17,18 +17,22 @@ function Home() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 mt-8">
-      {uniqueDistricts.map((district, index) => (
-        <Link
-          key={index}
-          to={`/ilce/${district}`}
-          className="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 py-2 bg-green-100 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out"
-        >
-          <div className="flex flex-col items-center p-4 bg-white rounded-md hover:bg-green-50">
-            <h1 className="text-lg font-semibold text-gray-700">{district}</h1>
-          </div>
-        </Link>
-      ))}
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {uniqueDistricts.map((district, index) => (
+          <Link
+            key={index}
+            to={`/ilce/${district}`}
+            className="flex flex-col bg-white rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:scale-105"
+          >
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+                {district}
+              </h3>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
