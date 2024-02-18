@@ -41,7 +41,7 @@ function District() {
             <div className="mt-auto p-5 bg-red-100">
               <a
                 href={`tel:${pharmacy.tel}`}
-                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-medium"
+                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-bold"
               >
                 Telefon: {pharmacy.tel}
               </a>
@@ -49,7 +49,7 @@ function District() {
                 href={`https://www.google.com/maps/?q=${pharmacy.enlem},${pharmacy.boylam}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-medium mt-3"
+                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-bold mt-3"
               >
                 Haritada Görüntüle
               </a>
