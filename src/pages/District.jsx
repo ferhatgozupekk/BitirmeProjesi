@@ -34,6 +34,7 @@ function District() {
               </h3>
               <p className="text-red-600 text-sm">{pharmacy.adres}</p>
               <p className="text-red-500 text-sm mt-3">
+                <b>ADRES TARİFİ: </b>
                 {pharmacy.adres_tarifi}
                 <br />
               </p>
