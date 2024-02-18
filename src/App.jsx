@@ -8,12 +8,16 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ilce/:districtName" element={<District />} />
-      </Routes>
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/ilce/:districtName" element={<District />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
