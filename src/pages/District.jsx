@@ -29,10 +29,13 @@ function District() {
             <div className="p-5">
               <h3 className="text-xl font-semibold text-red-700 mb-2 text-center">
                 {pharmacy.eczane}
+                <br />
+                <br />
               </h3>
               <p className="text-red-600 text-sm">{pharmacy.adres}</p>
               <p className="text-red-500 text-sm mt-3">
                 {pharmacy.adres_tarifi}
+                <br />
               </p>
             </div>
             <div className="mt-auto p-5 bg-red-100">
