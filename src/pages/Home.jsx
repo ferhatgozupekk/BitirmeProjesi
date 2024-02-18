@@ -23,10 +23,10 @@ function Home() {
           <Link
             key={index}
             to={`/ilce/${district}`}
-            className="flex flex-col bg-white rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:scale-105"
+            className="flex flex-col bg-red-50 rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:scale-105"
           >
             <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+              <h3 className="text-xl font-semibold text-red-700 mb-2 text-center">
                 {district}
               </h3>
             </div>

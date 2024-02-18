@@ -24,21 +24,21 @@ function District() {
         {pharmacies.map((pharmacy) => (
           <div
             key={pharmacy.id}
-            className="flex flex-col bg-white rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1"
+            className="flex flex-col bg-red-50 rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1"
           >
             <div className="p-5">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+              <h3 className="text-xl font-semibold text-red-700 mb-2 text-center">
                 {pharmacy.eczane}
               </h3>
-              <p className="text-gray-600 text-sm">{pharmacy.adres}</p>
-              <p className="text-gray-500 text-sm mt-3">
+              <p className="text-red-600 text-sm">{pharmacy.adres}</p>
+              <p className="text-red-500 text-sm mt-3">
                 {pharmacy.adres_tarifi}
               </p>
             </div>
-            <div className="mt-auto p-5 bg-gray-100">
+            <div className="mt-auto p-5 bg-red-100">
               <a
                 href={`tel:${pharmacy.tel}`}
-                className="flex items-center justify-center text-gray-700 hover:text-gray-900 transition-colors duration-200 text-sm font-medium"
+                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-medium"
               >
                 Telefon: {pharmacy.tel}
               </a>
@@ -46,7 +46,7 @@ function District() {
                 href={`https://www.google.com/maps/?q=${pharmacy.enlem},${pharmacy.boylam}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center text-gray-700 hover:text-gray-900 transition-colors duration-200 text-sm font-medium mt-3"
+                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-medium mt-3"
               >
                 Haritada Görüntüle
               </a>
