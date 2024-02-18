@@ -12,7 +12,9 @@ function Header() {
             className="flex title-font font-medium items-center text-white"
           >
             <GiHealthCapsule className="h-10 w-10" aria-hidden="true" />
-            <span className="ml-3 text-xl">Bursa Nöbetçi Eczaneler</span>
+            <span className="ml-3 text-3xl font-bold">
+              Bursa Nöbetçi Eczaneler
+            </span>
           </Link>
           <div className="w-full max-w-xs">
             <input
