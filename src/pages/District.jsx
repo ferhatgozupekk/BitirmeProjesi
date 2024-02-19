@@ -6,11 +6,15 @@ function District() {
   const { districtName } = useParams();
 
   useEffect(() => {
-    fetch("/data/data.json")
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://www.beo.org.tr/nobet-belediye"
+    )
       .then((response) => response.json())
       .then((data) => {
+        // Nesneyi diziye çevir
+        const dataArray = Object.values(data);
         // İlgili ilçeye ait eczaneleri filtreleyip state'e kaydediyoruz.
-        const filteredPharmacies = data.filter(
+        const filteredPharmacies = dataArray.filter(
           (pharmacy) => pharmacy.ilce === districtName
         );
         setPharmacies(filteredPharmacies);
@@ -21,9 +25,9 @@ function District() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {pharmacies.map((pharmacy) => (
+        {pharmacies.map((pharmacy, index) => (
           <div
-            key={pharmacy.id}
+            key={index}
             className="flex flex-col bg-red-50 rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1"
           >
             <div className="p-5">

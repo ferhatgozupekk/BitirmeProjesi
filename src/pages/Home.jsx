@@ -5,12 +5,15 @@ function Home() {
   const [uniqueDistricts, setUniqueDistricts] = useState([]);
 
   useEffect(() => {
-    // data.json dosyasından veriyi fetch metoduyla çekiyoruz.
-    fetch("data/data.json")
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://www.beo.org.tr/nobet-belediye"
+    )
       .then((response) => response.json())
       .then((data) => {
+        // Nesneyi diziye dönüştür
+        const dataArray = Object.values(data);
         // Benzersiz ilçeleri belirleyip state'e kaydediyoruz.
-        const districts = new Set(data.map((item) => item.ilce));
+        const districts = new Set(dataArray.map((item) => item.ilce));
         setUniqueDistricts([...districts]);
       })
       .catch((error) => console.error("Veri çekme hatası:", error));
