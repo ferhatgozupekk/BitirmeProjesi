@@ -59,7 +59,7 @@ function District() {
                 <b> ADRES: </b> {pharmacy.adres}
               </p>
               {pharmacy.adres_tarifi && (
-                <p className="text-red-500 text-sm mt-3">
+                <p className="text-red-600 text-sm mt-3">
                   <b>ADRES TARİFİ: </b>
                   {pharmacy.adres_tarifi}
                 </p>
