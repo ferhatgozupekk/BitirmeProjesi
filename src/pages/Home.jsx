@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { turkceIHarfiDuzelt } from "../utils/stringHelpers";
 
 function Home() {
   const [uniqueDistricts, setUniqueDistricts] = useState([]);
+  const searchTerm = useSelector((state) => state.search.searchTerm);
 
   useEffect(() => {
     fetch(
@@ -10,19 +13,21 @@ function Home() {
     )
       .then((response) => response.json())
       .then((data) => {
-        // Nesneyi diziye dönüştür
         const dataArray = Object.values(data);
-        // Benzersiz ilçeleri belirleyip state'e kaydediyoruz.
         const districts = new Set(dataArray.map((item) => item.ilce));
         setUniqueDistricts([...districts]);
       })
       .catch((error) => console.error("Veri çekme hatası:", error));
   }, []);
 
+  const filteredDistricts = uniqueDistricts.filter((district) =>
+    turkceIHarfiDuzelt(district).includes(turkceIHarfiDuzelt(searchTerm))
+  );
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {uniqueDistricts.map((district, index) => (
+        {filteredDistricts.map((district, index) => (
           <Link
             key={index}
             to={`/ilce/${district}`}

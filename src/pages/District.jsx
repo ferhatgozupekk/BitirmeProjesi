@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { SiGooglemaps } from "react-icons/si";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { turkceIHarfiDuzelt } from "../utils/stringHelpers";
 
 function District() {
   const [pharmacies, setPharmacies] = useState([]);
   const { districtName } = useParams();
+  const searchTerm = useSelector((state) => state.search.searchTerm);
 
   useEffect(() => {
     fetch(
@@ -13,16 +16,24 @@ function District() {
     )
       .then((response) => response.json())
       .then((data) => {
-        // Nesneyi diziye çevir
         const dataArray = Object.values(data);
-        // İlgili ilçeye ait eczaneleri filtreleyip state'e kaydediyoruz.
+
         const filteredPharmacies = dataArray.filter(
-          (pharmacy) => pharmacy.ilce === districtName
+          (pharmacy) =>
+            turkceIHarfiDuzelt(pharmacy.ilce).includes(
+              turkceIHarfiDuzelt(searchTerm)
+            ) ||
+            turkceIHarfiDuzelt(pharmacy.eczane).includes(
+              turkceIHarfiDuzelt(searchTerm)
+            ) ||
+            turkceIHarfiDuzelt(pharmacy.adres).includes(
+              turkceIHarfiDuzelt(searchTerm)
+            )
         );
         setPharmacies(filteredPharmacies);
       })
       .catch((error) => console.error("Veri çekme hatası:", error));
-  }, [districtName]);
+  }, [districtName, searchTerm]);
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
@@ -48,20 +59,23 @@ function District() {
                 </p>
               )}
             </div>
-            <div className="mt-auto p-5 bg-red-100">
-              <a
-                href={`tel:${pharmacy.tel}`}
-                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-bold"
-              >
-                <BsFillTelephoneFill /> Telefon: {pharmacy.tel}
-              </a>
+            <div className="mt-auto p-5 bg-red-100 flex justify-center space-x-2">
+              {pharmacy.tel && (
+                <a
+                  href={`tel:${pharmacy.tel}`}
+                  className="inline-flex items-center justify-center px-4 py-2 bg-red-500 text-white font-bold text-sm rounded-lg shadow hover:bg-red-600 transition-colors duration-200"
+                >
+                  <BsFillTelephoneFill className="mr-2" /> Telefon:{" "}
+                  {pharmacy.tel}
+                </a>
+              )}
               <a
                 href={`https://www.google.com/maps/?q=${pharmacy.enlem},${pharmacy.boylam}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-bold mt-3"
+                className="inline-flex items-center justify-center px-4 py-2 bg-red-500 text-white font-bold text-sm rounded-lg shadow hover:bg-red-600 transition-colors duration-200"
               >
-                <SiGooglemaps /> Haritada Görüntüle
+                <SiGooglemaps className="mr-2" /> Haritada Görüntüle
               </a>
             </div>
           </div>
