@@ -18,18 +18,24 @@ function District() {
       .then((data) => {
         const dataArray = Object.values(data);
 
-        const filteredPharmacies = dataArray.filter(
+        let filteredPharmacies = dataArray.filter(
           (pharmacy) =>
-            turkceIHarfiDuzelt(pharmacy.ilce).includes(
-              turkceIHarfiDuzelt(searchTerm)
-            ) ||
-            turkceIHarfiDuzelt(pharmacy.eczane).includes(
-              turkceIHarfiDuzelt(searchTerm)
-            ) ||
-            turkceIHarfiDuzelt(pharmacy.adres).includes(
-              turkceIHarfiDuzelt(searchTerm)
-            )
+            turkceIHarfiDuzelt(pharmacy.ilce) ===
+            turkceIHarfiDuzelt(districtName)
         );
+
+        if (searchTerm) {
+          filteredPharmacies = filteredPharmacies.filter(
+            (pharmacy) =>
+              turkceIHarfiDuzelt(pharmacy.eczane).includes(
+                turkceIHarfiDuzelt(searchTerm)
+              ) ||
+              turkceIHarfiDuzelt(pharmacy.adres).includes(
+                turkceIHarfiDuzelt(searchTerm)
+              )
+          );
+        }
+
         setPharmacies(filteredPharmacies);
       })
       .catch((error) => console.error("Veri çekme hatası:", error));
