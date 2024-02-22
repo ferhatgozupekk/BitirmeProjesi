@@ -36,12 +36,15 @@ function District() {
                 <br />
                 <br />
               </h3>
-              <p className="text-red-600 text-sm">{pharmacy.adres}</p>
-              <p className="text-red-500 text-sm mt-3">
-                <b>ADRES TARİFİ: </b>
-                {pharmacy.adres_tarifi}
-                <br />
+              <p className="text-red-600 text-sm">
+                <b>ADRES: </b> {pharmacy.adres}
               </p>
+              {pharmacy.adres_tarifi && (
+                <p className="text-red-500 text-sm mt-3">
+                  <b>ADRES TARİFİ: </b>
+                  {pharmacy.adres_tarifi}
+                </p>
+              )}
             </div>
             <div className="mt-auto p-5 bg-red-100">
               <a
