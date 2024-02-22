@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { SiGooglemaps } from "react-icons/si";
+import { BsFillTelephoneFill } from "react-icons/bs";
 
 function District() {
   const [pharmacies, setPharmacies] = useState([]);
@@ -23,7 +25,7 @@ function District() {
   }, [districtName]);
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pharmacies.map((pharmacy, index) => (
           <div
@@ -37,7 +39,7 @@ function District() {
                 <br />
               </h3>
               <p className="text-red-600 text-sm">
-                <b>ADRES: </b> {pharmacy.adres}
+                <b> ADRES: </b> {pharmacy.adres}
               </p>
               {pharmacy.adres_tarifi && (
                 <p className="text-red-500 text-sm mt-3">
@@ -51,7 +53,7 @@ function District() {
                 href={`tel:${pharmacy.tel}`}
                 className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-bold"
               >
-                Telefon: {pharmacy.tel}
+                <BsFillTelephoneFill /> Telefon: {pharmacy.tel}
               </a>
               <a
                 href={`https://www.google.com/maps/?q=${pharmacy.enlem},${pharmacy.boylam}`}
@@ -59,7 +61,7 @@ function District() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center text-red-700 hover:text-red-800 transition-colors duration-200 text-sm font-bold mt-3"
               >
-                Haritada Görüntüle
+                <SiGooglemaps /> Haritada Görüntüle
               </a>
             </div>
           </div>
