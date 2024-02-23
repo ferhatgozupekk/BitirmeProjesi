@@ -4,7 +4,7 @@ Bursa'daki nöbetçi eczaneleri bulmanıza yardımcı olan bir web uygulamasıd�
 
 **Demo**: [Bursa Nöbetçi Eczaneler](https://bitirme-projesi-mocha.vercel.app)
 
-## Önemli Bilgilendirme
+## ÇOK ÖNEMLİ BİLGİLENDİRME
 
 Websitesini açtığınızda boş bir ekranla karşılaşırsanız, bu durum API hizmetinden gelen verinin CORS politikası nedeniyle engellenmesinden kaynaklanmaktadır. Bu sorunu aşmak için, `cors-anywhere` demo sunucusunu kullanmaktayız. Siteyi kullanıma hazır hale getirmek için lütfen ilk olarak sitenin en altında bulunan footer'daki "CORS Anywhere Demo Sunucusunu Aktifleştir" linkine tıklayarak, cors-anywhere demo sunucusunu aktifleştirin.
 
