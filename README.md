@@ -2,7 +2,7 @@
 
 Bursa'daki nöbetçi eczaneleri bulmanıza yardımcı olan bir web uygulamasıdır. Bu uygulama, kullanıcıların Bursa'nın farklı ilçelerindeki nöbetçi eczanelere hızlı ve kolay bir şekilde erişim sağlamalarını amaçlar.
 
-**Demo**: [Bursa Nöbetçi Eczaneler](https://bitirme-projesi-mocha.vercel.app)
+**Web Site Linki**: [Bursa Nöbetçi Eczaneler](https://bitirme-projesi-mocha.vercel.app)
 
 ## ÇOK ÖNEMLİ BİLGİLENDİRME
 
